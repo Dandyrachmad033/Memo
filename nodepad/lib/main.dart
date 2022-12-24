@@ -36,6 +36,7 @@ class _HomePageState extends State<HomePage> {
       ),
 
       body: Container(
+        height: MediaQuery.of(context).size.height,
         color: Color.fromARGB(255, 12, 4, 4),
         child: SingleChildScrollView (
           child: Column(
@@ -54,7 +55,9 @@ class _HomePageState extends State<HomePage> {
       
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-         
+          setState(() {
+          data.add("${data.length + 1}");
+          });
         },
         child: Icon(Icons.add),
         backgroundColor: Color.fromARGB(255, 14, 15, 14),
@@ -96,6 +99,15 @@ class _Grid_viewState extends State<Grid_view> {
             borderRadius: BorderRadius.circular(10),
             color:  Color.fromARGB(255, 27, 106, 50),
           ),
+          child: Center(
+            child: Text(
+              data[index],
+              style: TextStyle(
+                fontSize: 20,
+                color: Colors.white,
+              ),
+            ),
+          )
         );
       },
     );
